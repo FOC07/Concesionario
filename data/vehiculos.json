@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "año": 2021,
+    "precio": 75000000,
+    "kilometraje": 30000,
+    "llantas": "Buenas",
+    "color": "Blanco"
+  },
+  {
+    "id": 2,
+    "marca": "Mazda",
+    "modelo": "CX-5",
+    "año": 2020,
+    "precio": 110000000,
+    "kilometraje": 55000,
+    "llantas": "Cambio",
+    "color": "Negro"
+  },
+  {
+    "id": 3,
+    "marca": "Renault",
+    "modelo": "Duster",
+    "año": 2022,
+    "precio": 85000000,
+    "kilometraje": 45000,
+    "llantas": "Buenas",
+    "color": "Gris"
+  },
+  {
+    "id": 4,
+    "marca": "Chevrolet",
+    "modelo": "Tracker",
+    "año": 2023,
+    "precio": 98000000,
+    "kilometraje": 12000,
+    "llantas": "Buenas",
+    "color": "Rojo"
+  }
+]
