@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {StyleSheet,Text, View, FlatList, TouchableOpacity, Alert, } from 'react-native';
 
 import vehiculos from './data/vehiculos.json';
 
@@ -14,20 +7,40 @@ export default function App() {
   const calcularValor = (vehiculo) => {
     let valor = vehiculo.precio;
 
-    // Descuento por kilometraje
-    valor -= vehiculo.precio * (0.0005 * (vehiculo.kilometraje / 1000));
+    // Depreciación por kilometraje
+    const depreciacion =
+      vehiculo.precio * (0.0005 * (vehiculo.kilometraje / 1000));
+
+    valor -= depreciacion;
 
     // Descuento por llantas
+    let descuentoLlantas = 0;
+
     if (vehiculo.llantas === 'Cambio') {
-      valor -= 500000;
+      descuentoLlantas = 500000;
+      valor -= descuentoLlantas;
     }
 
-    let mensaje = `Valor estimado: $${Math.round(
-      valor
-    ).toLocaleString('es-CO')}`;
+    let mensaje = `
+Precio original: $${vehiculo.precio.toLocaleString('es-CO')}
+
+Kilometraje: ${vehiculo.kilometraje.toLocaleString('es-CO')} km
+Estado de llantas: ${vehiculo.llantas}
+
+
+Depreciación por kilometraje:
+-$${Math.round(depreciacion).toLocaleString('es-CO')}
+
+Descuento por llantas:
+-$${descuentoLlantas.toLocaleString('es-CO')}
+
+Valor estimado:
+$${Math.round(valor).toLocaleString('es-CO')}
+`;
 
     if (vehiculo.kilometraje > 50000) {
-      mensaje += '\n\n⚠️ Posible mantenimiento requerido.';
+      mensaje +=
+        '\n⚠️ Alerta: El vehículo supera los 50.000 km. Se recomienda revisar mantenimiento.';
     }
 
     Alert.alert(
